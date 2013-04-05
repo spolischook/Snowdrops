@@ -106,6 +106,10 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: Tonic\UserBundle\Entity\User
+    registration:
+        form:
+            type: tonic_user_registration
+
 stof_doctrine_extensions:
     orm:
         default:
