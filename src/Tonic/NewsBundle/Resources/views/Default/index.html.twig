@@ -1,21 +1,13 @@
 {% extends "::base.html.twig" %}
 {% block title %}{{ parent() }} - Welcome!{% endblock %}
 {% block body %}
-    <div class="masthead">
-        <ul class="nav nav-pills pull-right">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <h3 class="muted">Tonic challenge</h3>
-    </div>
-
-    <hr>
-
     <div class="jumbotron">
         <h1>Super awesome marketing speak!</h1>
         <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <a class="btn btn-large btn-success" href="#">Sign up today</a>
+        {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <a class="btn btn-large btn-success" href="{{ path('fos_user_registration_register') }}">Sign up today</a>
+            <a class="btn btn-large btn-info" href="{{ path('fos_user_security_login') }}">Login</a>
+        {% endif %}
     </div>
 
     <hr>
