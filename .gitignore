@@ -10,4 +10,7 @@
 .idea/
 composer.lock
 app/config/parameters.yml
+web/js/*
+web/css/*
+web/img/*
 *~
