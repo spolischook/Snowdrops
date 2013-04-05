@@ -2,12 +2,63 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="description" content="Tonic challenge for test employee's skills">
+        <meta name="author" content="Sergey Polischook">
+        <title>{% block title %}Tonic challenge{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <style type="text/css">
+            body {
+                padding-top: 20px;
+                padding-bottom: 40px;
+            }
+
+                /* Custom container */
+            .container-narrow {
+                margin: 0 auto;
+                max-width: 700px;
+            }
+            .container-narrow > hr {
+                margin: 30px 0;
+            }
+
+                /* Main marketing message and sign up button */
+            .jumbotron {
+                margin: 60px 0;
+                text-align: center;
+            }
+            .jumbotron h1 {
+                font-size: 72px;
+                line-height: 1;
+            }
+            .jumbotron .btn {
+                font-size: 21px;
+                padding: 14px 24px;
+            }
+
+                /* Supporting marketing content */
+            .marketing {
+                margin: 60px 0;
+            }
+            .marketing p + h4 {
+                margin-top: 28px;
+            }
+        </style>
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="container-narrow">
+                {% block body %}{% endblock %}
+            <hr>
+
+            <div class="footer">
+                <p>&copy; Company 2012</p>
+            </div>
+
+        </div> <!-- /container -->
         {% block javascripts %}{% endblock %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{ asset('js/jquery.js') }}"><\/script>')</script>
+        <script src="{{ asset('js/bootstrap.js') }}"></script>
     </body>
 </html>
