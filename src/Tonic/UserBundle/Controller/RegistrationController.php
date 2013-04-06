@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use FOS\UserBundle\Model\UserInterface;
+use Tonic\UserBundle\Entity\User;
 
 class RegistrationController extends BaseController
 {
@@ -29,6 +30,10 @@ class RegistrationController extends BaseController
         $user = $userManager->createUser();
         $user->setEnabled(true);
         $user->setUsername(uniqid("u", true));
+
+        if ($request->getSession()->get('visit_from_ref_link')) {
+            $this->setReferralUserInfoFromSession($user, $request);
+        }
 
         $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, new UserEvent($user, $request));
 
@@ -58,5 +63,24 @@ class RegistrationController extends BaseController
         return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register.html.'.$this->getEngine(), array(
             'form' => $form->createView(),
         ));
+    }
+
+    private function setReferralUserInfoFromSession(User $user, Request $request)
+    {
+        $session = $request->getSession();
+        $referralUser = $this->container
+            ->get('doctrine')
+            ->getManager()
+            ->getRepository('UserBundle:User')
+            ->findOneByRefId($session->get('referral_ref_id'));
+
+        if (!$referralUser) {
+            return;
+        }
+
+        $user->setReferralUser($referralUser);
+        $user->setReferralDate($session->get('ref_date'));
+        $user->setReferralIp($session->get('client_ip'));
+        $user->setReferralLink($session->get('referer'));
     }
 }

@@ -70,6 +70,27 @@ class User extends BaseUser
      */
     protected $invitedUsers;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="referral_date", type="date", length=255, nullable=true)
+     */
+    protected $referralDate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="referral_link", type="string", length=255, nullable=true)
+     */
+    protected $referralLink;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="referral_ip", type="string", length=255, nullable=true)
+     */
+    protected $referralIp;
+
 
     public function __construct()
     {
@@ -235,5 +256,74 @@ class User extends BaseUser
     public function getInvitedUsers()
     {
         return $this->invitedUsers;
+    }
+
+    /**
+     * Set referralDate
+     *
+     * @param \DateTime $referralDate
+     * @return User
+     */
+    public function setReferralDate($referralDate)
+    {
+        $this->referralDate = $referralDate;
+
+        return $this;
+    }
+
+    /**
+     * Get referralDate
+     *
+     * @return \DateTime
+     */
+    public function getReferralDate()
+    {
+        return $this->referralDate;
+    }
+
+    /**
+     * Set referralLink
+     *
+     * @param string $referralLink
+     * @return User
+     */
+    public function setReferralLink($referralLink)
+    {
+        $this->referralLink = $referralLink;
+
+        return $this;
+    }
+
+    /**
+     * Get referralLink
+     *
+     * @return string
+     */
+    public function getReferralLink()
+    {
+        return $this->referralLink;
+    }
+
+    /**
+     * Set referralIp
+     *
+     * @param string $referralIp
+     * @return User
+     */
+    public function setReferralIp($referralIp)
+    {
+        $this->referralIp = $referralIp;
+
+        return $this;
+    }
+
+    /**
+     * Get referralIp
+     *
+     * @return string
+     */
+    public function getReferralIp()
+    {
+        return $this->referralIp;
     }
 }
