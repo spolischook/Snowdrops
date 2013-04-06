@@ -1,0 +1,15 @@
+# Form field labels
+form:
+    first_name: "First Name:"
+    last_name: "Last Name:"
+
+registration:
+    email:
+        message: |
+            Hello %username%!
+
+            To finish activating your account - please visit %confirmationUrl%
+            You may to give your friends this referral link - %indexUrl%?ref=%userRefId%
+
+            Regards,
+            the Team.
