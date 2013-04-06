@@ -109,8 +109,19 @@ fos_user:
     registration:
         form:
             type: tonic_user_registration
+        confirmation:
+            enabled:    true
 
 stof_doctrine_extensions:
     orm:
         default:
             sluggable: true
+
+swiftmailer:
+    transport:  smtp
+    encryption: ssl
+    auth_mode:  login
+    sender_address: test@kotoblog.pp.ua
+    host:       mail.ukraine.com.ua
+    username:   test@kotoblog.pp.ua
+    password:   jsT78X2f
