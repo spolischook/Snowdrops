@@ -13,4 +13,6 @@ app/config/parameters.yml
 web/js/*
 web/css/*
 web/img/*
+!bin/reload.php
+!bin/base_script.php
 *~
