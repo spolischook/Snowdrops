@@ -10,7 +10,10 @@
             <tag name="form.type" alias="tonic_user_registration" />
             <argument>%fos_user.model.user.class%</argument>
         </service>
-
+        <service id="kernel.listener.tonic_user_request_listener" class="Tonic\UserBundle\EventListener\TonicUserRequestListener">
+            <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" />
+            <argument type="service" id="router"/>
+        </service>
     </services>
 
 </container>
