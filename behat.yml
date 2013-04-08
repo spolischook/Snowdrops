@@ -1,0 +1,13 @@
+default:
+  extensions:
+    Behat\Symfony2Extension\Extension:
+        mink_driver: true
+    Behat\MinkExtension\Extension:
+        default_session: selenium2
+#        javascript_session: sahi
+#        default_session: sahi
+        base_url: http://localhost/tonic/web/app_test.php
+        browser_name: firefox
+        selenium2: ~
+        sahi:
+            host: localhost

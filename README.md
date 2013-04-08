@@ -21,6 +21,20 @@ this script do for you all necessary actions
 Warning!
 You may define that some sites not provide HTTP referer, like Gmail.
 
-Tests
+### Tests ###
 
-coming soon...
+[![Build Status](https://secure.travis-ci.org/spolischook/Snowdrops.png)](http://travis-ci.org/spolischook/Snowdrops)
+
+First of all, you must download and run Selenium server http://docs.seleniumhq.org/download/
+Than you have to add your parameters for DB at app/config/config_test.yml
+Create DB for tests
+
+``` bash
+php app/console doctrine:database:create env=test
+```
+
+Run behat tests:
+
+``` bash
+vendor/behat/behat/bin/behat @UserBundle
+```
