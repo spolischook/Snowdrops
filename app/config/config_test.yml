@@ -19,3 +19,9 @@ fos_user:
     registration:
         confirmation:
             enabled:    false
+
+doctrine:
+    dbal:
+        dbname:   %database_name_test%
+        user:     root
+        password: ~
