@@ -6,7 +6,7 @@ default:
         default_session: selenium2
 #        javascript_session: sahi
 #        default_session: sahi
-        base_url: http://localhost/tonic/web/app_test.php
+        base_url: http://referral.l/app_test.php
         browser_name: firefox
         selenium2: ~
         sahi:

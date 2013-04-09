@@ -22,6 +22,9 @@ fos_user:
 
 doctrine:
     dbal:
-        dbname:   %database_name_test%
-        user:     root
-        password: ~
+        dbname:   %database_name%_test
+
+monolog:
+    handlers:
+        main:
+            action_level: error
